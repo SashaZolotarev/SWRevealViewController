@@ -736,6 +736,13 @@ const int FrontViewPositionNone = 0xff;
     [self _setFrontViewPosition:initialPosition withDuration:0.0];
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self panGestureRecognizer];
+    [self tapGestureRecognizer];
+}
+
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -762,7 +769,7 @@ const int FrontViewPositionNone = 0xff;
 }
 
 
-- (NSUInteger)supportedInterfaceOrientations
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     // we could have simply not implemented this, but we choose to call super to make explicit that we
     // want the default behavior.

@@ -47,10 +47,6 @@
     
     SWRevealViewController *revealController = [self revealViewController];
     
-    
-    [revealController panGestureRecognizer];
-    [revealController tapGestureRecognizer];
-    
     UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
         style:UIBarButtonItemStylePlain target:revealController action:@selector(revealToggle:)];
     
