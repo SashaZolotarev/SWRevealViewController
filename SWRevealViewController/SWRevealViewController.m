@@ -1171,9 +1171,12 @@ const int FrontViewPositionNone = 0xff;
 //        return NO;
 
     // forbid gesture if the following delegate is implemented and returns NO
-    if ( [_delegate respondsToSelector:@selector(revealControllerPanGestureShouldBegin:)] )
-        if ( [_delegate revealControllerPanGestureShouldBegin:self] == NO )
+    
+    if ([_delegate respondsToSelector:@selector(revealController:shouldBeginPanGestureRecognizer:)]) {
+        if ([_delegate revealController:self shouldBeginPanGestureRecognizer:_panGestureRecognizer] == NO) {
             return NO;
+        }
+    }
 
     CGFloat xLocation = [_panGestureRecognizer locationInView:recognizerView].x;
     CGFloat width = recognizerView.bounds.size.width;

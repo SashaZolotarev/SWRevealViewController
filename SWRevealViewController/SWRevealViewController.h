@@ -340,7 +340,7 @@ typedef enum
 - (void)revealController:(SWRevealViewController *)revealController animateToPosition:(FrontViewPosition)position;
 
 // Implement this to return NO when you want the pan gesture recognizer to be ignored
-- (BOOL)revealControllerPanGestureShouldBegin:(SWRevealViewController *)revealController;
+- (BOOL)revealController:(SWRevealViewController *)revealController shouldBeginPanGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer;
 
 // Implement this to return NO when you want the tap gesture recognizer to be ignored
 - (BOOL)revealControllerTapGestureShouldBegin:(SWRevealViewController *)revealController;
