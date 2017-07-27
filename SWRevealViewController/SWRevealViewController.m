@@ -1410,6 +1410,7 @@ const int FrontViewPositionNone = 0xff;
 {
     if ((newPosition == FrontViewPositionRight) || (newPosition == FrontViewPositionLeftSide))
     {
+        [_frontViewController.view endEditing:YES];
         _frontViewController.view.userInteractionEnabled = NO;
     } else
     {
