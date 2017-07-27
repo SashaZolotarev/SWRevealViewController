@@ -1408,6 +1408,16 @@ const int FrontViewPositionNone = 0xff;
 // Primitive method for view controller deployment and animated layout to the given position.
 - (void)_setFrontViewPosition:(FrontViewPosition)newPosition withDuration:(NSTimeInterval)duration
 {
+    if ((newPosition == FrontViewPositionRight) || (newPosition == FrontViewPositionLeftSide))
+    {
+        _frontViewController.view.userInteractionEnabled = NO;
+    } else
+    {
+        if (newPosition == FrontViewPositionLeft)
+        {
+            _frontViewController.view.userInteractionEnabled = YES;
+        }
+    }
     void (^rearDeploymentCompletion)() = [self _rearViewDeploymentForNewFrontViewPosition:newPosition];
     void (^rightDeploymentCompletion)() = [self _rightViewDeploymentForNewFrontViewPosition:newPosition];
     void (^frontDeploymentCompletion)() = [self _frontViewDeploymentForNewFrontViewPosition:newPosition];
